@@ -1,0 +1,22 @@
+name: CD - Deploy
+
+on:
+  workflow_run:
+    workflows: ["CD - Build and Publish Image"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Why are you triggering this manually?"
+        required: false
+        default: "manual redeploy"
+
+jobs:
+  deploy:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render deploy hook
+        run: |
+          curl -fsS -X POST "${{ secrets.RENDER_DEPLOY_HOOK_URL }}"
