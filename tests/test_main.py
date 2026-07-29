@@ -14,7 +14,7 @@ def test_read_root():
 def test_health():
     response = client.get("/health")
     assert response.status_code == 200
-    assert response.json() == {"status": "ok"}
+    assert response.json() == {"status": "ok, now this the second commit of mine to show how the CI/CD that we designed works"}
 
 
 def test_add():
