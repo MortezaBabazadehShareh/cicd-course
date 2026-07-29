@@ -10,7 +10,7 @@ def read_root() -> dict:
 
 @app.get("/health")
 def health() -> dict:
-    return {"status": "ok"}
+    return {"status": "ok, now this the second commit of mine to show how the CI/CD that we designed works!!!!"}
 
 
 def add(a: int, b: int) -> int:
