@@ -5,7 +5,7 @@ app = FastAPI(title="CI/CD Course App", version="0.1.0")
 
 @app.get("/")
 def read_root() -> dict:
-    return {"message": "environment check"}
+    return {"message": "environment check SECOND COMMIT"}
 
 
 @app.get("/health")
