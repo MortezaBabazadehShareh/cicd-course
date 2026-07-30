@@ -8,7 +8,7 @@ client = TestClient(app)
 def test_read_root():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "environment check THIRD COMMIT"}
+    assert response.json() == {"message": "environment check forth COMMIT"}
 
 
 def test_health():
