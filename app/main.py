@@ -15,4 +15,4 @@ def health() -> dict:
 
 def add(a: int, b: int) -> int:
     """A plain function we can unit test, separate from the HTTP layer."""
-    return a + b
+    return a - b
